@@ -6,12 +6,7 @@
     "pid": "0x6060",
     "device_version": "0.0.1"
   },
-/*
-  "matrix_pins": {
-    "rows": ["D9", "D10"],
-    "cols": ["F0", "F1", "F4", "F5"]
-  },
-*/
+
   "diode_direction": "ROW2COL",
   "layouts": {
     "LAYOUT": {
