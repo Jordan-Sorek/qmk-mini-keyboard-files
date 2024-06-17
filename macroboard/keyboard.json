@@ -1,0 +1,17 @@
+{
+  "keyboard_name": "macroboard",
+  "vendor_id": "0xFEED",
+  "product_id": "0x0001",
+  "description": "A brief description of your keyboard.",
+  "matrix_rows": 2,
+  "matrix_cols": 4,
+  /*"layouts": {
+    "layout_name": {
+      "layout": [
+        "macroboard"
+      ],
+      "key_count": 8
+    }
+  }
+  */
+}
