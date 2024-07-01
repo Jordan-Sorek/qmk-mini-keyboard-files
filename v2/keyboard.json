@@ -1,0 +1,9 @@
+{
+  "keyboard_name": "macroboard",
+  "vendor_id": "0xFEED",
+  "product_id": "0x0001",
+  "description": "A brief description of your keyboard.",
+  "matrix_rows": 1,
+  "matrix_cols": 8,
+
+}
