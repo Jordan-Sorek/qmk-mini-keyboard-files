@@ -17,6 +17,7 @@ ARTSEY_L,
 ARTSEY_Z,
 ARTSEY_D,
 ARTSEY_G,
+ARTSEY_EXTRA,
 ARTSEY_SPACE,
 ARTSEY_SPACE_2,
 ARTSEY_BACKSPACE,
@@ -38,12 +39,15 @@ ARTSEY_OS_SHIFT,
 ARTSEY_CTRL,
 ARTSEY_CTRL_2,
 ARTSEY_CTRL_3,
+ARTSEY_CTRL_HOLD,
 ARTSEY_GUI,
 ARTSEY_GUI_2,
 ARTSEY_GUI_3,
+ARTSEY_GUI_HOLD,
 ARTSEY_ALT,
 ARTSEY_ALT_2,
 ARTSEY_ALT_3,
+ARTSEY_ALT_HOLD,
 ARTSEY_SHIFT,
 ARTSEY_SHIFT2,
 ARSEY_PANIC,
@@ -53,6 +57,8 @@ ARTSEY_NAV,
 ARTSEY_MAIN1,
 ARTSEY_MOU,
 ARTSEY_MAIN2,
+ARTSEY_MOUSPEED_0,
+ARTSEY_MOUSPEED_1,
 ARTSEY_7,
 ARTSEY_8,
 ARTSEY_9,
@@ -78,6 +84,7 @@ const uint16_t PROGMEM artsey_l[] = {BASE_2_1,BASE_2_2,BASE_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_z[] = {BASE_1_1,BASE_1_2,BASE_1_3,BASE_1_4,COMBO_END};
 const uint16_t PROGMEM artsey_d[] = {BASE_1_1,BASE_1_2,BASE_1_3,COMBO_END};
 const uint16_t PROGMEM artsey_g[] = {BASE_1_2,BASE_1_3,COMBO_END};
+const uint16_t PROGMEM artsey_extra[] = {BASE_1_1,BASE_1_3,COMBO_END};
 const uint16_t PROGMEM artsey_space[] = {BASE_2_1,BASE_2_2,BASE_2_3,BASE_2_4,COMBO_END};
 const uint16_t PROGMEM artsey_space_2[] = {NAV_2_1,NAV_2_2,NAV_2_3,NAV_2_4,COMBO_END};
 const uint16_t PROGMEM artsey_backspace[] = {BASE_2_1,BASE_1_2,COMBO_END};
@@ -99,12 +106,15 @@ const uint16_t PROGMEM artsey_os_shift[] = {BASE_2_1,BASE_1_2,BASE_1_3,BASE_1_4,
 const uint16_t PROGMEM artsey_ctrl[] = {BASE_1_4,BASE_2_1,COMBO_END};
 const uint16_t PROGMEM artsey_ctrl_2[] = {NAV_1_4,NAV_2_1,COMBO_END};
 const uint16_t PROGMEM artsey_ctrl_3[] = {MOU_1_4,MOU_2_1,COMBO_END};
+const uint16_t PROGMEM artsey_ctrl_hold[] = {BASE_1_3,BASE_1_4,BASE_2_1,COMBO_END};
 const uint16_t PROGMEM artsey_gui[] = {BASE_1_4,BASE_2_2,COMBO_END};
 const uint16_t PROGMEM artsey_gui_2[] = {NAV_1_4,NAV_2_2,COMBO_END};
 const uint16_t PROGMEM artsey_gui_3[] = {MOU_1_4,MOU_2_2,COMBO_END};
+const uint16_t PROGMEM artsey_gui_hold[] = {BASE_1_3,BASE_1_4,BASE_2_2,COMBO_END};
 const uint16_t PROGMEM artsey_alt[] = {BASE_1_4,BASE_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_alt_2[] = {NAV_1_4,NAV_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_alt_3[] = {MOU_1_4,MOU_2_3,COMBO_END};
+const uint16_t PROGMEM artsey_alt_hold[] = {BASE_1_3,BASE_1_4,BASE_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_shift[] = {BASE_1_1,BASE_2_2,BASE_2_3,BASE_2_4,COMBO_END};
 const uint16_t PROGMEM artsey_shift2[] = {NAV_1_1,NAV_2_2,NAV_2_3,NAV_2_4,COMBO_END};
 const uint16_t PROGMEM arsey_panic[] = {BASE_1_1,BASE_1_2,BASE_1_3,BASE_1_4,BASE_2_1,BASE_2_2,BASE_2_3,BASE_2_4,COMBO_END};
@@ -114,6 +124,8 @@ const uint16_t PROGMEM artsey_nav[] = {BASE_1_2,BASE_2_1,BASE_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_main1[] = {NAV_1_2,NAV_2_1,NAV_2_3,COMBO_END};
 const uint16_t PROGMEM artsey_mou[] = {BASE_1_1,BASE_1_3,BASE_2_2,COMBO_END};
 const uint16_t PROGMEM artsey_main2[] = {MOU_1_1,MOU_1_3,MOU_2_2,COMBO_END};
+const uint16_t PROGMEM artsey_mouspeed_0[] = {MOU_1_1,MOU_1_3,COMBO_END};
+const uint16_t PROGMEM artsey_mouspeed_1[] = {MOU_1_4,MOU_2_4,COMBO_END};
 const uint16_t PROGMEM artsey_7[] = {NUM_1_1,NUM_1_2,COMBO_END};
 const uint16_t PROGMEM artsey_8[] = {NUM_1_2,NUM_1_3,COMBO_END};
 const uint16_t PROGMEM artsey_9[] = {NUM_2_1,NUM_2_2,COMBO_END};
@@ -137,6 +149,7 @@ combo_t key_combos[] = {
 [ARTSEY_Z] = COMBO_ACTION(artsey_z),
 [ARTSEY_D] = COMBO_ACTION(artsey_d),
 [ARTSEY_G] = COMBO_ACTION(artsey_g),
+[ARTSEY_EXTRA] = COMBO_ACTION(artsey_extra),
 [ARTSEY_SPACE] = COMBO_ACTION(artsey_space),
 [ARTSEY_SPACE_2] = COMBO_ACTION(artsey_space_2),
 [ARTSEY_BACKSPACE] = COMBO_ACTION(artsey_backspace),
@@ -158,12 +171,15 @@ combo_t key_combos[] = {
 [ARTSEY_CTRL] = COMBO_ACTION(artsey_ctrl),
 [ARTSEY_CTRL_2] = COMBO_ACTION(artsey_ctrl_2),
 [ARTSEY_CTRL_3] = COMBO_ACTION(artsey_ctrl_3),
+[ARTSEY_CTRL_HOLD] = COMBO_ACTION(artsey_ctrl_hold),
 [ARTSEY_GUI] = COMBO_ACTION(artsey_gui),
 [ARTSEY_GUI_2] = COMBO_ACTION(artsey_gui_2),
 [ARTSEY_GUI_3] = COMBO_ACTION(artsey_gui_3),
+[ARTSEY_GUI_HOLD] = COMBO_ACTION(artsey_gui_hold),
 [ARTSEY_ALT] = COMBO_ACTION(artsey_alt),
 [ARTSEY_ALT_2] = COMBO_ACTION(artsey_alt_2),
 [ARTSEY_ALT_3] = COMBO_ACTION(artsey_alt_3),
+[ARTSEY_ALT_HOLD] = COMBO_ACTION(artsey_alt_hold),
 [ARTSEY_SHIFT] = COMBO_ACTION(artsey_shift),
 [ARTSEY_SHIFT2] = COMBO_ACTION(artsey_shift2),
 [ARSEY_PANIC] = COMBO_ACTION(arsey_panic),
@@ -173,6 +189,8 @@ combo_t key_combos[] = {
 [ARTSEY_MAIN1] = COMBO_ACTION(artsey_main1),
 [ARTSEY_MOU] = COMBO_ACTION(artsey_mou),
 [ARTSEY_MAIN2] = COMBO_ACTION(artsey_main2),
+[ARTSEY_MOUSPEED_0] = COMBO_ACTION(artsey_mouspeed_0),
+[ARTSEY_MOUSPEED_1] = COMBO_ACTION(artsey_mouspeed_1),
 [ARTSEY_7] = COMBO_ACTION(artsey_7),
 [ARTSEY_8] = COMBO_ACTION(artsey_8),
 [ARTSEY_9] = COMBO_ACTION(artsey_9),
@@ -234,6 +252,9 @@ break;
 case ARTSEY_G:
 if (pressed) {SEND_STRING("g");}
 break;
+case ARTSEY_EXTRA:
+if (pressed) {}
+break;
 case ARTSEY_SPACE:
 if (pressed) {SEND_STRING(" ");}
 break;
@@ -289,20 +310,15 @@ case ARTSEY_OS_SHIFT:
 if (pressed) {add_oneshot_mods(MOD_BIT(KC_LSFT));}
 break;
 case ARTSEY_CTRL:
-if (pressed) {
- if (get_mods() & MOD_MASK_CTRL){
- del_mods(MOD_MASK_CTRL);;
- } else { 
- add_mods(MOD_MASK_CTRL); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LCTL));}
 break;
 case ARTSEY_CTRL_2:
-if (pressed) {
- if (get_mods() & MOD_MASK_CTRL){
- del_mods(MOD_MASK_CTRL);;
- } else { 
- add_mods(MOD_MASK_CTRL); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LCTL));}
 break;
 case ARTSEY_CTRL_3:
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LCTL));}
+break;
+case ARTSEY_CTRL_HOLD:
 if (pressed) {
  if (get_mods() & MOD_MASK_CTRL){
  del_mods(MOD_MASK_CTRL);;
@@ -310,20 +326,15 @@ if (pressed) {
  add_mods(MOD_MASK_CTRL); } ;}
 break;
 case ARTSEY_GUI:
-if (pressed) {
- if (get_mods() & MOD_MASK_GUI){
- del_mods(MOD_MASK_GUI);;
- } else { 
- add_mods(MOD_MASK_GUI); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LGUI));}
 break;
 case ARTSEY_GUI_2:
-if (pressed) {
- if (get_mods() & MOD_MASK_GUI){
- del_mods(MOD_MASK_GUI);;
- } else { 
- add_mods(MOD_MASK_GUI); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LGUI));}
 break;
 case ARTSEY_GUI_3:
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LGUI));}
+break;
+case ARTSEY_GUI_HOLD:
 if (pressed) {
  if (get_mods() & MOD_MASK_GUI){
  del_mods(MOD_MASK_GUI);;
@@ -331,20 +342,15 @@ if (pressed) {
  add_mods(MOD_MASK_GUI); } ;}
 break;
 case ARTSEY_ALT:
-if (pressed) {
- if (get_mods() & MOD_MASK_ALT){
- del_mods(MOD_MASK_ALT);;
- } else { 
- add_mods(MOD_MASK_ALT); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LALT));}
 break;
 case ARTSEY_ALT_2:
-if (pressed) {
- if (get_mods() & MOD_MASK_ALT){
- del_mods(MOD_MASK_ALT);;
- } else { 
- add_mods(MOD_MASK_ALT); } ;}
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LALT));}
 break;
 case ARTSEY_ALT_3:
+if (pressed) {add_oneshot_mods(MOD_BIT(KC_LALT));}
+break;
+case ARTSEY_ALT_HOLD:
 if (pressed) {
  if (get_mods() & MOD_MASK_ALT){
  del_mods(MOD_MASK_ALT);;
@@ -366,15 +372,18 @@ if (pressed) {
  add_mods(MOD_MASK_SHIFT); } ;}
 break;
 case ARSEY_PANIC:
-if (pressed) {clear_mods(); 
+if (pressed) {clear_mods();
+ del_mods(MOD_LCTL | MOD_RCTL | MOD_LSFT | MOD_RSFT | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI); 
  layer_move(_ART_BASE);;}
 break;
 case ARSEY_PANIC_2:
-if (pressed) {clear_mods(); 
+if (pressed) {clear_mods();
+ del_mods(MOD_LCTL | MOD_RCTL | MOD_LSFT | MOD_RSFT | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI); 
  layer_move(_ART_BASE);;}
 break;
 case ARSEY_PANIC_3:
-if (pressed) {clear_mods(); 
+if (pressed) {clear_mods();
+ del_mods(MOD_LCTL | MOD_RCTL | MOD_LSFT | MOD_RSFT | MOD_LALT | MOD_RALT | MOD_LGUI | MOD_RGUI); 
  layer_move(_ART_BASE);;}
 break;
 case ARTSEY_NAV:
@@ -388,6 +397,12 @@ if (pressed) {layer_move(_ART_MOU);}
 break;
 case ARTSEY_MAIN2:
 if (pressed) {layer_move(_ART_BASE);}
+break;
+case ARTSEY_MOUSPEED_0:
+if (pressed) {}
+break;
+case ARTSEY_MOUSPEED_1:
+if (pressed) {}
 break;
 case ARTSEY_7:
 if (pressed) {SEND_STRING("7");}
